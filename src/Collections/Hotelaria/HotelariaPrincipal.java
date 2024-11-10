@@ -3,6 +3,9 @@ package Collections.Hotelaria;
 import java.util.ArrayList;
 
 import static Collections.Hotelaria.CadastroHotel.imprimirHoteisComForTradicional;
+import static Collections.Hotelaria.CadastroHotel.imprimirHoteisComForeach;
+import static Collections.Hotelaria.CadastroHotel.imprimirHoteisComListIteratorDoPrimeiroAoUltimo;
+import static Collections.Hotelaria.CadastroHotel.imprimirHoteisComListIteratorDoUltimoAoPrimeiro;
 
 public class HotelariaPrincipal {
 
@@ -35,6 +38,14 @@ public class HotelariaPrincipal {
 
         System.out.println(hoteis.indexOf(hotel)); //<- busca o elemento do ArrayList da esquerda pra direita, mesmo se houver mais de um elemento no ArrayList
         System.out.println(hoteis.lastIndexOf(hotel)); //<- busca o elemento do ArrayList da direita pra esquerda, mesmo se houver mais de um elemento no ArrayList
+
+        //Iterator
+
+        imprimirHoteisComListIteratorDoPrimeiroAoUltimo(hoteis);
+        imprimirHoteisComListIteratorDoUltimoAoPrimeiro(hoteis);
+
+        //ForEach
+        imprimirHoteisComForeach(hoteis);
 
         cadastro.removerHoteisPorCidade("Santana de Parnaiba/SP");
         cadastro.removerHoteis();

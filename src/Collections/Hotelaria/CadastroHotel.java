@@ -1,6 +1,9 @@
 package Collections.Hotelaria;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class CadastroHotel {
 
@@ -36,6 +39,44 @@ public class CadastroHotel {
             Hotel hotel = hoteis.get(i);
             System.out.printf("%s (%s) -> %.2f\n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
         }
+    }
+
+    public static void imprimirHoteisComIterator(List<Hotel> hoteis) {
+        Iterator<Hotel> hotelIterator = hoteis.iterator();
+        System.out.println("Imprimindo hoteis com o Iterator!");
+        while (hotelIterator.hasNext()) {
+            Hotel hotel = hotelIterator.next();
+            System.out.printf("%s (%s) -> %.2f\n",
+                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
+        }
+    }
+
+    public static void imprimirHoteisComListIteratorDoPrimeiroAoUltimo(List<Hotel> hoteis) {
+        ListIterator<Hotel> hotelListIterator = hoteis.listIterator();
+        System.out.println("Imprimindo hoteis com o List Iterator do primeiro ao ultimo!");
+        while (hotelListIterator.hasNext()) {
+            Hotel hotel = hotelListIterator.next();
+            System.out.printf("%s (%s) -> %.2f\n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
+        }
+        System.out.println("--FIM--");
+    }
+
+    public static void imprimirHoteisComListIteratorDoUltimoAoPrimeiro(List<Hotel> hoteis) {
+        ListIterator<Hotel> hotelListIterator = hoteis.listIterator(hoteis.size());
+        System.out.println("Imprimindo hoteis com o List Iterator do ultimo ao primeiro!");
+        while (hotelListIterator.hasPrevious()) {
+            Hotel hotel = hotelListIterator.previous();
+            System.out.printf("%s (%s) -> %.2f\n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
+        }
+        System.out.println("--FIM--");
+    }
+
+    public static void imprimirHoteisComForeach(List<Hotel> hoteis) {
+        System.out.println("Imprimindo hoteis com o ForEach");
+        for (Hotel hotel: hoteis) {
+            System.out.printf("%s (%s) -> %.2f\n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
+        }
+        System.out.println("--FIM--");
     }
 
     public void removerHoteisPorCidade(String cidade) {
