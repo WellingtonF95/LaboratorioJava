@@ -1,9 +1,7 @@
 package Collections.Hotelaria;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
+
 
 public class CadastroHotel {
 
@@ -12,7 +10,7 @@ public class CadastroHotel {
     * a não ser o próprio tipo que foi declarado no operador diamante <>. No caso abaixo, do tipo Hotel*/
 
     private final ArrayList hoteisSemGenerics = new ArrayList(); //Sem Generics
-    private final ArrayList<Hotel> hoteis = new ArrayList<>(); //Com Generics
+    private final List<Hotel> hoteis = new ArrayList<>();//Com Generics
 
     public void adicionarHoteis(String nome, String cidade, double precoDiaria) {
         Hotel hotel = new Hotel(nome, cidade, precoDiaria);
@@ -30,11 +28,29 @@ public class CadastroHotel {
         hoteis.add(new Hotel(nome, cidade, precoDiaria));
     }
 
-    public ArrayList<Hotel> obterHoteis() {
+    public List<Hotel> obterHoteis() {
         return hoteis;
     }
 
-    public static void imprimirHoteisComForTradicional(ArrayList<Hotel> hoteis) {
+    public Hotel[] obterHoteisTransformandoEmArray() {
+        return hoteis.toArray(new Hotel[0]);
+    }
+
+    public void ordenarHoteis() {
+        Collections.sort(hoteis);
+    }
+
+    public void ordenarHoteisPorPrecoDiaria() {
+        /*Usa implementação personalizada para ordenar por preço, sem alterar a implementação com Comparable
+         que faz a ordenação por nome do hotel, combinando também outras ordenações por ordem de chamada
+         1º ordena por preço diaria;
+         2º ordena por nome do hotel.
+         */
+        hoteis.sort(new PrecoHotelariaComparator()
+                .thenComparing(Comparator.naturalOrder()));
+    }
+
+    public static void imprimirHoteisComForTradicional(List<Hotel> hoteis) {
         for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
             System.out.printf("%s (%s) -> %.2f\n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
@@ -90,7 +106,7 @@ public class CadastroHotel {
     }
 
     public void removerHoteis() {
-       ArrayList<Hotel> listaHoteis = obterHoteis();
+        List<Hotel> listaHoteis = obterHoteis();
         for (int i = 0; i < listaHoteis.size(); i++) {
             hoteis.removeAll(listaHoteis);
         }

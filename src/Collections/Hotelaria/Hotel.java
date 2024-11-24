@@ -1,6 +1,8 @@
 package Collections.Hotelaria;
 
-public class Hotel {
+import java.util.Objects;
+
+public class Hotel implements Comparable<Hotel> {
 
     private String nome;
     private String cidade;
@@ -45,21 +47,50 @@ public class Hotel {
         if (o == null || getClass() != o.getClass()) return false;
 
         Hotel hotel = (Hotel) o;
-        return cidade.equals(hotel.cidade);
+        return Objects.equals(nome, hotel.nome);
     }
 
     @Override
     public int hashCode() {
-        int result = nome.hashCode();
-        return result;
+        return Objects.hashCode(nome);
     }
 
     @Override
     public String toString() {
-        return "Hotel{" +
+        return "Hotel {" +
                 "nome='" + nome + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", precoDiaria=" + precoDiaria +
                 '}';
+    }
+
+    /*Para ordenar por objetos personalizados que implementa a interface Comparble, deve-se implementar o metodo compareTo
+    *onde é retornado um inteiro, indicando por:
+    *
+    * (-1) se o valor do objeto for menor que o valor do objeto recebido;
+    * (1) se o valor do objeto for maior que o valor do objeto recebido;
+    * (0) se o valor do objeto for igual ao valor do objeto recebido.
+    *
+    * A boa prática ao sobreescrever o compareTo de usar a(s) mesma(s) propriedade(s) a qual também estão sendo usadas no metodo
+    * equals() e hasCode()
+    *
+    * Exemplo comparando por preço da diaria:
+    *
+    * Recomendado. O proprio Wrapper já possui um compare que realiza a comparação dos valores
+      return Double.compare(this.getPrecoDiaria(), o.getPrecoDiaria());
+
+      Tranforma em um Wrapper e depois usa chama o compareTo que existe no proprio Wrapper e faz a comparação
+      return Double.valueOf(getPrecoDiaria()).compareTo(o.getPrecoDiaria());
+
+      Forma manual. Não recomendada pois pode causar confusão durante a sobrescrita
+      if (this.getPrecoDiaria() < o.getPrecoDiaria()) return -1;
+      else if (this.getPrecoDiaria() > o.getPrecoDiaria()) return 1;
+      else return 0;
+    *
+    * */
+
+    @Override
+    public int compareTo(Hotel o) {
+        return this.getNome().compareTo(o.getNome());
     }
 }
