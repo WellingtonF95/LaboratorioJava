@@ -71,7 +71,7 @@ public class Hotel implements Comparable<Hotel> {
     * (1) se o valor do objeto for maior que o valor do objeto recebido;
     * (0) se o valor do objeto for igual ao valor do objeto recebido.
     *
-    * A boa prática ao sobreescrever o compareTo de usar a(s) mesma(s) propriedade(s) a qual também estão sendo usadas no metodo
+    * A boa prática ao sobreescrever o compareTo é usar a(s) mesma(s) propriedade(s) a qual também estão sendo usadas no metodo
     * equals() e hasCode()
     *
     * Exemplo comparando por preço da diaria:
