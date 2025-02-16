@@ -1,11 +1,9 @@
 package Collections.Cidade;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class CidadeMain {
+public class CidadeSetMain {
 
     public static void main(String[] args) {
 

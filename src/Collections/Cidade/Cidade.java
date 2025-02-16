@@ -18,6 +18,22 @@ public class Cidade implements Comparable<Cidade> {
         return codigoIbge;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getTotalHabitantes() {
+        return totalHabitantes;
+    }
+
+    public void setTotalHabitantes(int totalHabitantes) {
+        this.totalHabitantes = totalHabitantes;
+    }
+
     @Override
     public String toString() {
         return "Cidade{" +
