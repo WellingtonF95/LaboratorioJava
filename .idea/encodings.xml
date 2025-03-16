@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/Collections/Cidade/EstadoCidadeMapMain.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Collections/Hotelaria/CadastroHotel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Collections/MegaSena/SorteadorIterator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/Desafio_Excessoes/ContaCorrente.java" charset="UTF-8" />
   </component>
 </project>
